@@ -2,7 +2,8 @@ import {
       Button,
       ButtonGroup,
 } from "react-bootstrap";
-export default function PostList({ data }) {
+function PostList({ data, deleteRecoed }) {
+
       const recordes = data.map((ele, idx) => (
             <tr key={ele.id}>
                   <td>#{++idx}</td>
@@ -10,7 +11,7 @@ export default function PostList({ data }) {
                   <td>
                         <ButtonGroup aria-label="Basic example">
                               <Button variant="success">Edit</Button>
-                              <Button variant="danger">Delete</Button>
+                              <Button variant="danger" onClick={() => deleteRecoed(ele.id)}>Delete</Button>
                         </ButtonGroup>
                   </td>
             </tr>
@@ -21,3 +22,5 @@ export default function PostList({ data }) {
             </>
       )
 }
+
+export default PostList;

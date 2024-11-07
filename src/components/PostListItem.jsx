@@ -1,10 +1,11 @@
+import { memo } from 'react';
 import React from 'react'
 import {
       Table
 } from "react-bootstrap";
 import PostList from './PostList';
 
-export default function PostListItem({ data }) {
+function PostListItem({ data, deleteRecoed }) {
 
       return (
             <Table striped bordered hover>
@@ -16,8 +17,10 @@ export default function PostListItem({ data }) {
                         </tr>
                   </thead>
                   <tbody>
-                        <PostList data={data} />
+                        <PostList data={data} deleteRecoed={deleteRecoed} />
                   </tbody>
             </Table>
       )
 }
+
+export default memo(PostListItem);
