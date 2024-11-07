@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
-const fetchPosts = createAsyncThunk(
+export const fetchPosts = createAsyncThunk(
       'posts/fetchPosts', async (_, thunkAPI) => {
             const { rejectWithValue } = thunkAPI;
             try {
@@ -25,11 +25,11 @@ const postsSlice = createSlice({
             [fetchPosts.pending]: (state) => {
                   state.loading = true;
                   state.error = null;
+
             },
             [fetchPosts.fulfilled]: (state, action) => {
                   state.loading = false;
-
-                  console.log(action.payload)
+                  state.records = action.payload;
             },
             [fetchPosts.rejected]: (state, action) => {
                   state.loading = false;

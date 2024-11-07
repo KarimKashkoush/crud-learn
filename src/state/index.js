@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import postsSlice from './postsSlice'
-
-const store = configureStore({ reducer: { postsSlice } })
+import modeSlice from "./darkLightMode"
+const store = configureStore({ reducer: { postsSlice, modeSlice } })
 
 export default store;
