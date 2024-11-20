@@ -3,6 +3,8 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "./state/index";
 import RootLayout from "./pages/RootLayout";
 import Add from "./pages/Add";
 import Edit from "./pages/Edit";
@@ -36,6 +38,8 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+    <Provider store={store}>
+      <RouterProvider router={router}></RouterProvider>
+    </Provider>
   </React.StrictMode>
 );
